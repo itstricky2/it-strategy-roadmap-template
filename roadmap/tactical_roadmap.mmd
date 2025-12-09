@@ -1,0 +1,15 @@
+gantt
+    dateFormat  YYYY-MM-DD
+    title       Horizon 1: Operational Excellence (12-18 Months)
+    excludes    weekends
+
+    section Infrastructure
+    [Initiative A]                  :active,    init_a, 2025-01-01, 90d
+    [Initiative B]                  :           init_b, after init_a, 60d
+
+    section Security
+    [Initiative C]                  :crit,      init_c, 2025-02-01, 45d
+
+    section Data & Apps
+    [Initiative D]                  :           init_d, 2025-04-01, 60d
+    [Initiative E]                  :active,    init_e, 2025-01-15, 120d
