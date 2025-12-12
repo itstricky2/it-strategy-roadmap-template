@@ -1,0 +1,38 @@
+name: Process Onboarding
+
+on:
+  push:
+    paths:
+      - 'answers/onboarding_answers.yaml'
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+          
+      - name: Process Onboarding
+        run: |
+          python scripts/onboarding_processor.py \
+            --input answers/onboarding_answers.yaml \
+            --output-dir ./docs/
+            
+      - name: Commit generated files
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add docs/ roadmap/
+          git diff --staged --quiet || git commit -m "Auto-process onboarding questionnaire answers"
+          git push
