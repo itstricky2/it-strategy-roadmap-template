@@ -1,0 +1,359 @@
+# Onboarding/Account Takeover Questionnaire Answer Schema
+# Use this YAML template to record answers during MSP transition
+# Copy this file and fill in responses for each client takeover
+
+metadata:
+  client_name: ""
+  client_type: "government"  # Options: government, enterprise
+  engagement_date: ""
+  vcio_name: ""
+  previous_msp: ""
+  transition_type: ""  # Options: hostile, cooperative, internal_takeover, greenfield
+  version: "1.0"
+
+# =============================================================================
+# DOMAIN 1: ACCESS, CREDENTIALING & SOVEREIGNTY
+# =============================================================================
+access_sovereignty:
+  # Administrative control verification
+  break_glass_credentials:
+    documented: false
+    location: ""
+    last_verified_date: ""
+    
+  global_admin_accounts:
+    - platform: ""  # M365, Google Workspace, Azure, AWS, etc.
+      account_owner: ""  # client_named_user, delegated_partner, previous_msp
+      account_email: ""
+      mfa_method: ""
+      mfa_controlled_by: ""  # client, previous_msp
+      verified: false
+      
+  domain_dns_control:
+    registrar: ""
+    registrar_login_verified: false
+    dns_provider: ""
+    dns_login_verified: false
+    mfa_phone_controlled_by: ""  # client, previous_msp
+    
+  hardware_ownership:
+    firewall:
+      owned_by: ""  # client, previous_msp, leased
+      make_model: ""
+      serial: ""
+      buyout_terms: ""
+    servers:
+      - name: ""
+        owned_by: ""
+        location: ""
+        buyout_terms: ""
+    networking:
+      owned_by: ""
+      inventory_verified: false
+      
+  # Operational dependencies
+  licensing:
+    microsoft_365:
+      tenant_owner: ""  # client, csp_partner
+      csp_partner_name: ""
+      license_type: ""
+      user_count: null
+      
+    other_subscriptions:
+      - vendor: ""
+        owned_by: ""
+        account_access_verified: false
+        contract_end_date: ""
+        
+  vendor_portals:
+    - vendor_name: ""
+      portal_url: ""
+      login_method: ""  # client_owned, previous_msp
+      access_verified: false
+      
+  ssl_certificates:
+    - domain: ""
+      issuer: ""
+      expiry_date: ""
+      managed_by: ""
+      auto_renew: false
+
+# =============================================================================
+# DOMAIN 2: SHADOW IT DETECTION
+# =============================================================================
+shadow_it:
+  # Discovery methods used
+  discovery_performed: false
+  discovery_methods:
+    - ""  # dns_analysis, expense_reports, user_interviews, network_scan
+    
+  # Unsanctioned services found
+  unsanctioned_saas:
+    - service_name: ""
+      category: ""  # file_sharing, project_mgmt, communication, ai_tools
+      users: null
+      data_sensitivity: ""  # low, medium, high, critical
+      action_required: ""  # block, migrate, sanction
+      
+  # Personal accounts in use
+  personal_accounts:
+    - platform: ""
+      user: ""
+      business_data_present: false
+      migration_required: false
+      
+  # Rogue infrastructure
+  rogue_infrastructure:
+    - type: ""  # personal_router, unauthorized_ap, cloud_vm, etc.
+      location: ""
+      owner: ""
+      security_risk: ""
+
+# =============================================================================
+# DOMAIN 3: LIABILITY BASELINE
+# =============================================================================
+liability_baseline:
+  # Security posture documentation
+  baseline_assessment_date: ""
+  
+  known_vulnerabilities:
+    - description: ""
+      severity: ""  # critical, high, medium, low
+      date_discovered: ""
+      acknowledged_by_client: false
+      
+  existing_security_gaps:
+    - gap: ""
+      risk_level: ""
+      client_aware: false
+      
+  # Previous incident history
+  past_incidents:
+    - incident_type: ""
+      date: ""
+      outcome: ""
+      documentation_available: false
+      
+  # Technical debt acknowledged
+  technical_debt_items:
+    - item: ""
+      risk: ""
+      client_acceptance_documented: false
+      
+  # Liability documentation
+  risk_acceptance_letters:
+    - risk_description: ""
+      signed_date: ""
+      signatory: ""
+      
+  engagement_letter_signed: false
+  scope_of_responsibility_documented: false
+
+# =============================================================================
+# DOMAIN 4: VENDOR DEPENDENCIES
+# =============================================================================
+vendor_dependencies:
+  # Outgoing MSP relationship
+  outgoing_msp:
+    company_name: ""
+    contact_name: ""
+    contact_email: ""
+    contact_phone: ""
+    relationship_status: ""  # cooperative, unresponsive, hostile
+    contract_end_date: ""
+    termination_notice_given_date: ""
+    
+  # Contractual obligations
+  existing_contracts:
+    - vendor: ""
+      service: ""
+      contract_end_date: ""
+      auto_renew: false
+      cancellation_notice_days: null
+      early_termination_fee: null
+      owned_by: ""  # client, previous_msp
+      
+  # Hardware as a Service
+  haas_agreements:
+    - provider: ""
+      equipment_type: ""
+      monthly_cost: null
+      contract_end_date: ""
+      buyout_cost: null
+      return_required: false
+      
+  # Managed services handover
+  managed_services_to_transition:
+    - service: ""
+      current_provider: ""
+      documentation_received: false
+      knowledge_transfer_complete: false
+
+# =============================================================================
+# DOMAIN 5: COMPLIANCE STATUS
+# =============================================================================
+compliance_status:
+  # Audit history
+  last_audits:
+    - framework: ""  # CJIS, HIPAA, PCI, SOC2, etc.
+      audit_date: ""
+      result: ""  # passed, conditional, failed
+      open_findings:
+        - finding: ""
+          remediation_deadline: ""
+          status: ""
+          
+  # Insurance status
+  cyber_insurance:
+    carrier: ""
+    policy_number: ""
+    renewal_date: ""
+    coverage_limit: null
+    current_requirements_met: false
+    gap_items:
+      - ""
+      
+  # Compliance gaps identified
+  compliance_gaps:
+    - framework: ""
+      gap_description: ""
+      remediation_priority: ""
+      estimated_cost: null
+
+# =============================================================================
+# DOMAIN 6: DOCUMENTATION INVENTORY
+# =============================================================================
+documentation:
+  # Network documentation
+  network_diagram:
+    exists: false
+    location: ""
+    last_updated: ""
+    accurate: null  # true, false, unknown
+    
+  ip_address_scheme:
+    documented: false
+    location: ""
+    
+  vlan_documentation:
+    exists: false
+    location: ""
+    
+  # Operational runbooks
+  runbooks:
+    - system: ""
+      exists: false
+      location: ""
+      last_updated: ""
+      
+  # Disaster recovery
+  dr_documentation:
+    dr_plan_exists: false
+    dr_plan_location: ""
+    dr_plan_last_tested: ""
+    
+    backup_documentation_exists: false
+    backup_schedule_documented: false
+    restore_procedures_documented: false
+    
+  # Asset management
+  asset_inventory:
+    exists: false
+    tool_used: ""
+    last_updated: ""
+    accuracy_percent: null
+    
+  # User documentation
+  user_directory:
+    source: ""  # AD, Azure AD, Google, manual
+    last_audit_date: ""
+    terminated_users_reviewed: false
+    
+  # Password/credential documentation
+  password_vault:
+    exists: false
+    platform: ""
+    access_transferred: false
+
+# =============================================================================
+# DOMAIN 7: CRITICAL SYSTEMS
+# =============================================================================
+critical_systems:
+  # RTO/RPO requirements
+  recovery_requirements:
+    overall_rto_hours: null
+    overall_rpo_hours: null
+    
+  # System-specific criticality
+  systems:
+    - name: ""
+      criticality: ""  # tier_1, tier_2, tier_3
+      rto_hours: null
+      rpo_hours: null
+      dependencies:
+        - ""
+      backup_verified: false
+      last_restore_test: ""
+      
+  # Backup verification
+  backup_status:
+    solution: ""
+    vendor: ""
+    backup_frequency: ""
+    retention_days: null
+    offsite_copy: false
+    immutable: false
+    last_successful_backup: ""
+    last_restore_test: ""
+    restore_test_successful: null
+    
+  # N-tier dependencies
+  application_dependencies:
+    - application: ""
+      depends_on:
+        - system: ""
+          type: ""  # database, api, authentication, network
+
+# =============================================================================
+# IMMEDIATE ACTIONS IDENTIFIED
+# =============================================================================
+immediate_actions:
+  day_1_critical:
+    - action: ""
+      reason: ""
+      owner: ""
+      status: ""
+      
+  week_1_high:
+    - action: ""
+      reason: ""
+      owner: ""
+      status: ""
+      
+  month_1_medium:
+    - action: ""
+      reason: ""
+      owner: ""
+      status: ""
+
+# =============================================================================
+# 30-60-90 DAY PLAN
+# =============================================================================
+stabilization_plan:
+  day_30:
+    objectives:
+      - ""
+    deliverables:
+      - ""
+      
+  day_60:
+    objectives:
+      - ""
+    deliverables:
+      - ""
+      
+  day_90:
+    objectives:
+      - ""
+    deliverables:
+      - ""

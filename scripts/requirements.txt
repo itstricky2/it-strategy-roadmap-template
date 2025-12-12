@@ -1,0 +1,2 @@
+# Python dependencies for questionnaire automation scripts
+PyYAML>=6.0

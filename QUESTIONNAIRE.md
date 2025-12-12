@@ -1,5 +1,18 @@
 # IT Strategy Information Gathering Questionnaire
 
+> ⚠️ **DEPRECATED**: This questionnaire has been superseded by the new questionnaire system.
+> 
+> Please use the new questionnaires in `/questionnaires/`:
+> - **5-Year Roadmap**: [`questionnaires/roadmap/`](questionnaires/roadmap/)
+> - **Onboarding/Takeover**: [`questionnaires/onboarding/`](questionnaires/onboarding/)
+> 
+> Choose the appropriate variant (Government or Enterprise) and version (Client or Internal).
+> The new questionnaires integrate with automation scripts for generating roadmaps and reports.
+
+---
+
+## Legacy Questionnaire (Reference Only)
+
 Use this document to interview stakeholders (CTO, CIO, CEO, Department Heads) and gather the raw data needed to populate the IT Strategy Roadmap.
 
 ## Part 1: Foundations (Mission & Vision)

@@ -1,0 +1,308 @@
+# Roadmap Questionnaire Answer Schema
+# Use this YAML template to record answers for automation processing
+# Copy this file and fill in responses for each client
+
+metadata:
+  client_name: ""
+  client_type: "government"  # Options: government, enterprise
+  engagement_date: ""
+  vcio_name: ""
+  version: "1.0"
+
+# =============================================================================
+# SECTION 1: ORGANIZATION & MISSION
+# =============================================================================
+organization:
+  primary_mission: ""
+  
+  five_year_success_outcomes:
+    - ""
+    
+  leadership_changes_anticipated: false
+  leadership_change_details: ""
+  
+  # Government-specific
+  fiscal_year_start_month: null  # 1-12, e.g., 7 for July
+  budget_adoption_quarter: null  # Q1-Q4
+  capital_improvement_plan_exists: false
+  cip_refresh_cycle_years: null
+  
+  # Enterprise-specific  
+  growth_targets:
+    revenue_growth_percent: null
+    headcount_growth_percent: null
+    new_markets: []
+    
+  structural_changes:
+    annexation_new_facilities: false
+    facility_details: ""
+    mergers_acquisitions_planned: false
+    ma_details: ""
+    divestitures_planned: false
+    divestiture_details: ""
+    
+  workforce:
+    current_headcount: null
+    projected_headcount_2030: null
+    retirement_wave_expected: false
+    retirement_departments: []
+    remote_hybrid_policy: ""  # Options: fully_remote, hybrid, in_office
+
+# =============================================================================
+# SECTION 2: IT STRATEGY & GOVERNANCE
+# =============================================================================
+it_governance:
+  documented_it_strategy_exists: false
+  strategy_document_location: ""
+  strategy_last_updated: ""
+  
+  it_decision_authority: ""  # Who approves IT priorities?
+  funding_approval_process: ""
+  
+  leadership_perception_of_it: ""  # Options: cost_center, business_enabler, strategic_partner
+  
+  it_steering_committee_exists: false
+  committee_meeting_frequency: ""
+
+# =============================================================================
+# SECTION 3: DIGITAL SERVICE DELIVERY
+# =============================================================================
+digital_services:
+  # Paper-to-digital assessment
+  paper_based_services:
+    - service_name: ""
+      volume: ""  # high, medium, low
+      digitization_mandate_date: null
+      
+  citizen_customer_satisfaction_measured: false
+  satisfaction_score: null
+  time_to_resolution_tracked: false
+  
+  # Smart infrastructure (IoT)
+  smart_initiatives_planned:
+    - initiative_name: ""
+      technology_type: ""  # smart_metering, traffic, environmental, other
+      network_segmentation_in_place: false
+      
+  # Data governance
+  data_governance:
+    centralized_data_strategy: false
+    single_source_of_truth_exists: false
+    data_silos:
+      - ""
+    ai_automation_interest_level: ""  # none, exploring, piloting, deploying
+    ai_use_cases:
+      - ""
+    
+  # Government: Open Data
+  open_data_mandate_exists: false
+  open_data_portal_url: ""
+
+# =============================================================================
+# SECTION 4: INFRASTRUCTURE & LEGACY
+# =============================================================================
+infrastructure:
+  # Current state
+  infrastructure_model: ""  # Options: on_premise, hybrid, cloud_first, cloud_native
+  desired_future_state: ""
+  
+  # Cloud strategy
+  cloud_philosophy: ""  # Options: cloud_first, cloud_smart_hybrid, on_premise_preferred
+  
+  # Government cloud compliance
+  govcloud_required: false
+  govcloud_provider: ""  # azure_gov, aws_govcloud, google_workspace_gov, other
+  
+  # Critical applications
+  mission_critical_applications:
+    - name: ""
+      hosting: ""  # on_premise, cloud, hybrid
+      vendor: ""
+      contract_end_date: ""
+      
+  # Legacy systems
+  legacy_systems:
+    - name: ""
+      os_version: ""
+      eol_date: ""
+      replacement_funded: false
+      containment_strategy: ""  # air_gapped, restricted_access, none
+      
+  # Connectivity
+  wan_redundancy_exists: false
+  sd_wan_deployed: false
+  diverse_carrier_paths: false
+  primary_isp: ""
+  backup_isp: ""
+  
+  # Uptime requirements
+  required_uptime_percent: null  # e.g., 99.9
+  current_uptime_percent: null
+
+# =============================================================================
+# SECTION 5: CYBERSECURITY & COMPLIANCE
+# =============================================================================
+security_compliance:
+  # Regulatory frameworks
+  applicable_frameworks:
+    cjis: false
+    cjis_last_audit_date: ""
+    cjis_findings: []
+    
+    hipaa: false
+    hipaa_baa_with_vendors: false
+    
+    pci_dss: false
+    pci_level: null  # 1-4
+    
+    fedramp: false
+    fedramp_level: ""  # low, moderate, high
+    
+    stateramp: false
+    
+    soc2: false
+    soc2_type: null  # 1 or 2
+    
+    ferpa: false
+    
+    single_audit_required: false
+    it_control_findings: []
+    
+  # Security posture
+  security_incidents_past_24_months:
+    - incident_type: ""
+      date: ""
+      resolution: ""
+      
+  mfa_deployment:
+    all_users: false
+    privileged_only: false
+    percentage_deployed: null
+    
+  edr_deployed: false
+  edr_vendor: ""
+  
+  # Insurance
+  cyber_insurance:
+    policy_exists: false
+    renewal_date: ""
+    coverage_amount: null
+    carrier_requirements:
+      - ""
+    premium_trend: ""  # increasing, stable, decreasing
+    
+  # Incident response
+  incident_response_plan_exists: false
+  irp_last_tested_date: ""
+  tabletop_exercise_frequency: ""
+  
+  # Business continuity
+  rto_hours: null
+  rpo_hours: null
+  backup_solution: ""
+  backup_immutable: false
+  backup_air_gapped: false
+  dr_site_exists: false
+
+# =============================================================================
+# SECTION 6: BUDGET & FINANCIAL PLANNING
+# =============================================================================
+budget:
+  current_annual_it_spend: null
+  it_spend_as_percent_of_revenue: null
+  
+  capex_opex_preference: ""  # Options: capex_preferred, opex_preferred, balanced
+  
+  multi_year_budgeting_enabled: false
+  budget_planning_horizon_years: null
+  
+  # Government: Grant opportunities
+  active_grants:
+    - grant_name: ""
+      amount: null
+      obligation_deadline: ""
+      allowable_uses: []
+      
+  # Cost optimization
+  cost_reduction_target_percent: null
+  cost_reduction_timeline: ""
+
+# =============================================================================
+# SECTION 7: VENDOR & PARTNER STRATEGY
+# =============================================================================
+vendors:
+  key_technology_vendors:
+    - vendor_name: ""
+      service_category: ""
+      contract_end_date: ""
+      annual_spend: null
+      satisfaction_level: ""  # high, medium, low
+      consolidation_candidate: false
+      
+  # Government: Procurement constraints
+  procurement_vehicle: ""  # open_bid, coop, sole_source_limit
+  sole_source_limit: null
+  preferred_coops:
+    - ""
+    
+  msp_relationship:
+    current_msp: ""
+    contract_end_date: ""
+    satisfaction_level: ""
+    pain_points:
+      - ""
+
+# =============================================================================
+# SECTION 8: THREE HORIZONS PLANNING
+# =============================================================================
+horizons:
+  # Horizon 1: Stabilization (0-18 months)
+  horizon_1_stabilization:
+    technical_debt_items:
+      - item: ""
+        urgency: ""  # critical, high, medium
+        estimated_cost: null
+        
+    fires_to_extinguish:
+      - ""
+      
+    security_gaps:
+      - ""
+      
+  # Horizon 2: Scale (2-3 years)
+  horizon_2_scale:
+    scaling_requirements:
+      - ""
+      
+    integration_needs:
+      - ""
+      
+    automation_opportunities:
+      - ""
+      
+  # Horizon 3: Innovation (3-5 years)
+  horizon_3_innovation:
+    transformational_technologies:
+      - technology: ""
+        business_impact: ""
+        readiness_level: ""  # exploring, researching, piloting
+        
+    moonshot_initiatives:
+      - ""
+
+# =============================================================================
+# SECTION 9: INITIATIVE PRIORITIZATION
+# =============================================================================
+initiatives:
+  identified_initiatives:
+    - name: ""
+      horizon: null  # 1, 2, or 3
+      business_goal_alignment: ""
+      priority: ""  # high, medium, low
+      estimated_cost: null
+      estimated_savings: null
+      sponsor: ""
+      risks:
+        - ""
+      dependencies:
+        - ""
