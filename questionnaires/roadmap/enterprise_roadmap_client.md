@@ -9,11 +9,45 @@
 
 ---
 
-## Section 1: Organization & Business Strategy
+## Section 1: Vision & Core Values
 
-### 1.1 Mission & Vision
+**1. Where do you want IT to be in 5 years?** (Vision Statement)
+_If everything goes perfectly, what does the future look like?_
+```
+[Your response here]
+```
 
-**1. What is your organization's primary mission or value proposition?**
+**2. What are your non-negotiable technical principles?** (Select all that apply)
+- [ ] Cloud First
+- [ ] Buy over Build
+- [ ] Security by Design
+- [ ] Open Standards / Interoperability
+- [ ] Mobile First
+- [ ] Data-Driven Decisions
+- [ ] Customer-Centric Design
+- [ ] Agile / Continuous Improvement
+- [ ] Other: _____________
+
+---
+
+## Section 2: Strategic Alignment
+
+**3. Strategic Goal Mapping**
+_Please list top 3 business goals for the next 1-3 years and mapping IT initiatives._
+
+| Business Goal (Priority 1-3) | IT Initiative Response | Priority (H/M/L) |
+|------------------------------|------------------------|------------------|
+| 1.                           |                        |                  |
+| 2.                           |                        |                  |
+| 3.                           |                        |                  |
+
+---
+
+## Section 3: Organization & Business Strategy
+
+### 3.1 Mission & Vision
+
+**4. What is your organization's primary mission or value proposition?**
 
 _Example: "To provide innovative manufacturing solutions that enable customers to reduce production costs while improving quality."_
 
