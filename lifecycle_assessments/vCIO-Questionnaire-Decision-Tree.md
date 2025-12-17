@@ -1,148 +1,112 @@
 # vCIO Questionnaire Decision Tree
 
-**Goal**: Quickly choose the right questionnaire at the right time across the client lifecycle.
-**Rule**: If more than one condition matches, **run the highest-risk questionnaire first**.
+*Document Version: 2.0*
+
+Use this guide to determine which assessment to run based on client lifecycle stage or trigger events.
 
 ---
 
-## 1. Are we onboarding or taking over the account?
+## 1. Decision Flowchart
 
-**Yes** - Run these in order:
-1.  **[Technology Maturity Baseline](vCIO-Technology-Maturity-Baseline.md)**
-    *   _Establish current state across identity, endpoints, backups, network, and process._
-2.  **[Executive Risk Tolerance](vCIO-Executive-Risk-Tolerance.md)**
-    *   _Document acceptable downtime, data loss, security tradeoffs, and escalation thresholds._
-3.  **[Key Person Dependency](vCIO-Key-Person-Dependency.md)**
-    *   _Identify single points of human failure, undocumented systems, credential fragility._
-
-*Then schedule:*
-*   Quarterly Health & Alignment for the next QBR cycle
-*   Annual Budget & Capital Planning based on fiscal calendar
-
-**No** - Go to section 2.
-
----
-
-## 2. Is it time for a Quarterly Business Review?
-
-**Yes** - Run:
-*   **[Quarterly Health & Alignment](vCIO-Quarterly-Health-Alignment.md)**
-
-*Then ask:*
-*   “Did priorities shift materially?”
-*   If yes, consider rerunning **Executive Risk Tolerance** (if last run was >18 months ago) and updating the roadmap.
-
-**No** - Go to section 3.
-
----
-
-## 3. Are we within budget planning season?
-*Trigger signals: Budget circular window, Dept requests, Fiscal year-end approaching.*
-
-**Yes** - Run:
-*   **Annual Budget & Capital Planning** (Use Core Roadmap Template)
-
-*Then check:*
-*   Are there major renewals in next 90–120 days?
-*   If yes, also run **[Vendor Consolidation ROI](vCIO-Vendor-Consolidation-ROI.md)**
-
-**No** - Go to section 4.
+```mermaid
+flowchart TD
+    Start[🎯 Start Here] --> Q_New{New Client?}
+    
+    Q_New -- Yes --> A_Onboard[🚀 Onboarding]
+    A_Onboard --> A_Baseline[📊 Tech Maturity Baseline]
+    A_Baseline --> A_Risk[🛡️ Exec Risk Tolerance]
+    A_Risk --> A_Keys[👥 Key Person Dependency]
+    A_Keys --> A_Roadmap[📋 5-Year Roadmap]
+    
+    Q_New -- No --> Q_Annual{Annual Review?}
+    
+    Q_Annual -- Yes --> A_Refresh[🔄 Annual Refresher]
+    A_Refresh --> A_Baseline2[📊 Tech Maturity Baseline]
+    
+    Q_Annual -- No --> Q_QBR{QBR Time?}
+    
+    Q_QBR -- Yes --> A_Health[🩺 Quarterly Health]
+    
+    Q_QBR -- No --> Q_Renewal{Major Renewal?}
+    Q_Renewal -- Yes --> A_Vendor[💰 Vendor ROI]
+    
+    Q_Renewal -- No --> Q_Incident{Recent Incident?}
+    Q_Incident -- Yes --> A_Post[🚨 Incident Postmortem]
+    
+    Q_Incident -- No --> Q_Turnover{Key Staff Change?}
+    Q_Turnover -- Yes --> A_Keys2[👥 Key Person Dependency]
+    
+    Q_Turnover -- No --> Default[✅ Default Cadence]
+    
+    style Start fill:#a855f7,stroke:#7c3aed,stroke-width:2px,color:#fff
+    style Default fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff
+    style A_Post fill:#ef4444,stroke:#dc2626,stroke-width:2px,color:#fff
+    style A_Onboard fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff
+    style A_Roadmap fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff
+```
 
 ---
 
-## 4. Are we within 90 days of an audit, renewal, or insurance event?
-*Trigger signals: Cyber insurance renewal, Compliance review, Audit.*
+## 2. vCIO Engagement Model (Lifecycle Graphic)
 
-**Yes** - Run:
-*   **Pre-Audit & Insurance Renewal Checklist** (Use Refresher)
-
-*Then check:*
-*   Was there a material incident in the last 6–12 months?
-*   If yes, also run **[Incident Postmortem](vCIO-Incident-Postmortem.md)** and link corrective actions to the renewal narrative.
-
-**No** - Go to section 5.
-
----
-
-## 5. Is there a facility change, buildout, or expansion?
-*Trigger signals: New office, renovation, expansion.*
-
-**Yes** - Run:
-*   **New Build & Expansion Scoping** (Custom Scoping)
-
-*Then check:*
-*   Does the expansion require new users, data, or system integration?
-*   If yes, add a mini-assessment using:
-    *   **Technology Maturity Baseline** (impacted sections)
-    *   **Vendor Consolidation ROI** (if new vendors introduced)
-
-**No** - Go to section 6.
-
----
-
-## 6. Are we approaching major vendor renewals or tool sprawl is suspected?
-*Trigger signals: M365/Security stack renewal, overlapping tools.*
-
-**Yes** - Run:
-*   **[Vendor Consolidation ROI](vCIO-Vendor-Consolidation-ROI.md)**
-
-*Then check:*
-*   Is leadership pushing back on IT spend?
-*   If yes, pair this with **Quarterly Health & Alignment** to re-anchor value.
-
-**No** - Go to section 7.
+```mermaid
+flowchart LR
+    vCIO((Strategic vCIO)) --> Quarterly
+    vCIO -.-> Annual
+    vCIO -.-> Event
+    
+    subgraph Quarterly[Quarterly Cadence]
+        Q1[Q1: Health & Roadmap]
+        Q2[Q2: Health & Risk]
+        Q3[Q3: Health & Budget]
+        Q4[Q4: Health & Strategy]
+    end
+    
+    subgraph Annual[Annual Specific]
+        AB[Annual Budget Planning]
+        MB[Maturity Baseline]
+    end
+    
+    subgraph Event[Event Driven]
+        IR[Incident Response]
+        VR[Vendor/Audit Renewal]
+        LC[Leadership Change]
+    end
+    
+    style vCIO fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff
+```
 
 ---
 
-## 7. Did a material incident occur?
-*Trigger signals: Outage, Ransomware, Breach, DR event.*
+## 3. Deliverable Checklist Mapping
 
-**Yes** - Run:
-*   **[Incident Postmortem](vCIO-Incident-Postmortem.md)**
-
-*Then check:*
-*   Is insurance renewal or audit within 90 days?
-*   If yes, immediately also run **Pre-Audit & Insurance Renewal Checklist**.
-
-**No** - Go to section 8.
-
----
-
-## 8. Is there organizational instability or staffing change?
-*Trigger signals: IT leader departure, Key person exits, M&A.*
-
-**Yes** - Run:
-*   **[Key Person Dependency](vCIO-Key-Person-Dependency.md)**
-
-*Then check:*
-*   Are there changes in risk appetite or leadership expectations?
-*   If yes, rerun **Executive Risk Tolerance**.
-
-**No** - Go to section 9.
+| Questionnaire / Assessment | Primary Deliverable | Secondary Outcome |
+|---|---|---|
+| Technology Maturity Baseline | Current State Report (Scores) | Gap Analysis for Roadmap |
+| Executive Risk Tolerance | Risk Tolerance Statement | IT Policy Adjustments |
+| Quarterly Health & Alignment | QBR Deck / Satisfaction Score | Priority Readjustment |
+| Key Person Dependency | Knowledge Transfer Plan | Access Control Audit |
+| Vendor Consolidation ROI | Savings Proposal | Shadow IT Discovery |
+| Incident Postmortem | Root Cause Analysis (RCA) | Process Improvement Plan |
+| Annual Budget Planning | 1-3 Year Budget Forecast | Capital Improvement Plan |
 
 ---
 
-## 9. Default Operating Cadence
+## 4. All Available Assessments
 
-If none of the above triggers apply, run on schedule:
-*   **Quarterly Health & Alignment**: Every Quarter
-*   **Annual Budget**: Annually (Fiscal)
-*   **Technology Maturity Baseline**: Annually
-*   **Executive Risk Tolerance**: Every 18–24 Months
-*   **Vendor Consolidation ROI**: Annually or before big renewals
+### Core Strategy
+| Assessment | Description |
+|---|---|
+| 📋 5-Year Strategic Roadmap | Long-term IT vision & roadmap |
+| 🚀 Onboarding / Account Takeover | New client discovery & baseline |
+| 🔄 Annual Strategy Refresher | Yearly check-in on priorities |
 
----
-
-## Risk Priority Rule
-*If multiple triggers hit at once, run in this order:*
-
-1.  **Incident Postmortem** (Critical)
-2.  **Pre-Audit & Insurance Renewal** (Compliance/Legal)
-3.  **Annual Budget** (Financial)
-4.  **New Build** (Project)
-5.  **Technology Maturity** (Foundational)
-6.  **Executive Risk** (Strategic)
-7.  **Key Person Dependency** (Risk)
-8.  **Vendor Consolidation** (Efficiency)
-9.  **Quarterly Health** (Relationship)
-
+### Lifecycle Assessments
+| Assessment | Description |
+|---|---|
+| 🩺 Quarterly Health & Alignment | QBR alignment check |
+| 📊 Technology Maturity Baseline | Technical posture scoring |
+| 🛡️ Executive Risk Tolerance | Define risk appetite |
+| 👥 Key Person Dependency | Bus factor analysis |
+| 💰 Vendor Consolidation & ROI | License/vendor optimization |
+| 🚨 Incident Postmortem | Root cause analysis |
